@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Квадрат</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f0f4ff;
+      font-family: sans-serif;
+    }
+
+    #box {
+      width: 40px;
+      height: 40px;
+      background: #d33636;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: width 0.4s cubic-bezier(.34,1.56,.64,1),
+                  height 0.4s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .controls {
+      margin-top: 24px;
+      display: flex;
+      gap: 24px;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="box"></div>
+
+  <div class="controls">
+    <label>
+      Ширина: <span id="w-val">200</span>px
+      <input type="range" id="w-slider" min="40" max="500" value="200">
+    </label>
+    <label>
+      Высота: <span id="h-val">200</span>px
+      <input type="range" id="h-slider" min="40" max="500" value="200">
+    </label>
+  </div>
+
+  <script>
+    const box = document.getElementById('box');
+    const wSlider = document.getElementById('w-slider');
+    const hSlider = document.getElementById('h-slider');
+    const wVal = document.getElementById('w-val');
+    const hVal = document.getElementById('h-val');
+
+    let big = false;
+
+    wSlider.oninput = () => {
+      wVal.textContent = wSlider.value;
+      if (big) box.style.width = wSlider.value + 'px';
+    };
+
+    hSlider.oninput = () => {
+      hVal.textContent = hSlider.value;
+      if (big) box.style.height = hSlider.value + 'px';
+    };
+
+    box.onclick = () => {
+      big = !big;
+      box.style.width  = big ? wSlider.value + 'px' : '80px';
+      box.style.height = big ? hSlider.value + 'px' : '80px';
+    };
+  </script>
+
+</body>
+</html>
