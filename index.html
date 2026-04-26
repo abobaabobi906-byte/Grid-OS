@@ -10,7 +10,7 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      background: #f0f4ff;
+      background: #ffffff;
       font-family: sans-serif;
     }
 
@@ -20,8 +20,9 @@
       background: #d33636;
       border-radius: 12px;
       cursor: pointer;
-      transition: width 0.4s cubic-bezier(.34,1.56,.64,1),
-                  height 0.4s cubic-bezier(.34,1.56,.64,1);
+      transition: width 0.7s cubic-bezier(0,.02,.42,.99),
+                  height 0.7s cubic-bezier(0,.02,.42,.99);
+                  background: #000000;
     }
 
     .controls {
@@ -75,8 +76,8 @@
 
     box.onclick = () => {
       big = !big;
-      box.style.width  = big ? wSlider.value + 'px' : '80px';
-      box.style.height = big ? hSlider.value + 'px' : '80px';
+      box.style.width  = big ? wSlider.value + 'px' : '40px';
+      box.style.height = big ? hSlider.value + 'px' : '40px';
     };
   </script>
 
